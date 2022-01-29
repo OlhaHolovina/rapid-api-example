@@ -55,19 +55,12 @@ html {
     margin-right: 50px;
 }
 
-/*contacts page*/
-
-iframe{
-    width: 50%;
-    margin-top: 3%;
-    margin-bottom: 70px;
-}
 form{
-    width: 45%;
+    width: 50%;
     font-size: 150%;
-    margin-left: 5%;
-    margin-top: 3%;
-
+    padding-left: 5%;
+    padding-top: 3%;
+    margin: auto;
 }
 
 input, textarea{
@@ -76,7 +69,7 @@ input, textarea{
     margin: 10px 0 25px 0;
     font-size: 60%;
 }
-input[type=submit]{
+button[type=submit]{
     width: 150px;
     font-size: 70%;
     border-radius: 4px;
@@ -84,8 +77,9 @@ input[type=submit]{
     transition: 1s;
     color: white;
     text-transform: uppercase;
+    cursor: pointer;
 }
-input[type=submit]:hover{
+button[type=submit]:hover{
     background-color: #437f73
 }
 /*Footer*/
