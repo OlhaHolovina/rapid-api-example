@@ -2,8 +2,8 @@ function setData(element, data){
   element.innerHTML = `
     <section class="result">
       <p>Location: ${data.location.name}, ${data.location.region}, ${data.location.country}</p>
-      <p>Wheather: ${data.current.condition.text} <img src="https:${data.current.condition.icon}" alt="wheater icon"></p>
       <p>Temprature: ${data.current.temp_c} &#8451;</p>
+      <p class="icon">Wheather: ${data.current.condition.text} <img src="https:${data.current.condition.icon}" alt="wheater icon"></p>
     </section>
   `;
 }
