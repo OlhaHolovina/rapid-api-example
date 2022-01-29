@@ -1,7 +1,18 @@
+function setData(element, data){
+  element.innerHTML = `
+    <section class="result">
+      <p>Location: ${data.location.name}, ${data.location.region}, ${data.location.country}</p>
+      <p>Wheather: ${data.current.condition.text} <img src="https:${data.current.condition.icon}" alt="wheater icon"></p>
+      <p>Temprature: ${data.current.temp_c} &#8451;</p>
+    </section>
+  `;
+}
+
 function formSubmit(e) {
   e.preventDefault();
 
   const city = document.getElementById('city').value;
+  const result = document.getElementById('result');
 
   fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${city}&days=1`, {
     "method": "GET",
@@ -11,16 +22,17 @@ function formSubmit(e) {
     }
   })
     .then(response => {
-      return response;
-    })
-    .then(response => {
       return response.json()
     })
     .then(data => {
-      console.log(data)
+      if (data.error && data.error.message) {
+        throw new Error(data.error.message);
+      } else {
+        setData(result, data);
+      }
     })
     .catch(err => {
-      console.error(err);
+      alert(err.message);
     });
 
 }
